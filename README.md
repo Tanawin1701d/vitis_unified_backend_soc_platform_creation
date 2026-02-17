@@ -35,29 +35,29 @@ git checkout pr-1376
 pip install .
 ```
 
-## 1. Model Creation and Prediction
+## [1. Model Creation and Prediction](./01_backend_predict.ipynb)
 
 - This is the first and most basic tutorial. Its main goal is to verify that the VitisUnified backend produces the exact same software simulation results as the traditional Vitis backend.
 
-## 2. C Simulation (CSim)
+## [2. C Simulation (CSim)](./02_csim_simulation.ipynb)
 
 - This tutorial runs a C simulation (`csim`) using the Vitis HLS compiler.
 - It validates that the generated C++ HLS code behaves identically to the Python-based "bridge" prediction.
 - If this passes, the HLS C++ code is functionally correct for synthesis.
 
-## 3. RTL Co-Simulation
+## [3. RTL Co-Simulation](./03_co_simulation.ipynb)
 
 - This tutorial runs a full RTL co-simulation (`cosim`), where the C++ code is synthesized into RTL (Verilog/VHDL) and then simulated.
 - It compares the cycle-accurate RTL simulation results against the software predictions.
 - This step ensures that the synthesized hardware logic matches the software model within a strict tolerance (1e-4).
 
-## 4. FIFO Depth Optimization
+## [4. FIFO Depth Optimization](./04_fifo_depth.ipynb)
 
 - This tutorial demonstrates the `vitisunified:fifo_depth_optimization` flow.
 - It runs a special co-simulation pass to analyze data flow and automatically determine optimal FIFO sizes between layers.
 - The result is a `fifo_depths.json` file, which helps minimize resource usage while preventing deadlocks.
 
-## 5. Generate Unified Bitfile
+## [5. Generate Unified Bitfile](./05_gen_unified.ipynb)
 
 - This covers the full end-to-end flow: from Keras model to a bitfile (`.xclbin` / `.bit`) for the ZCU102.
 - It performs synthesis, place-and-route, and generates the final binary tailored for the platform.
